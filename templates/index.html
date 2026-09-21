@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Student Registration</title>
+    <title>Hidden Places Explorer</title>
 </head>
 <body>
 
-<h1>Student Registration Form</h1>
+<h1>Hidden Places Explorer</h1>
+
+<p>Share a lesser-known place with other explorers.</p>
 
 <form action="/register"
-method="POST"
-enctype="multipart/form-data">
+      method="POST"
+      enctype="multipart/form-data">
 
-Name:
-<input type="text" name="name"><br><br>
+    Name:
+    <input type="text" name="name" required>
+    <br><br>
 
-Email:
-<input type="email" name="email"><br><br>
+    Email:
+    <input type="email" name="email" required>
+    <br><br>
 
-Course:
-<input type="text" name="course"><br><br>
+    Place Name:
+    <input type="text" name="place_name" required>
+    <br><br>
 
-Photo:
-<input type="file" name="photo"><br><br>
+    Location:
+    <input type="text" name="location" required>
+    <br><br>
 
-<input type="submit" value="Register">
+    Category:
+    <select name="category">
+        <option value="Historical Site">Historical Site</option>
+        <option value="Natural Attraction">Natural Attraction</option>
+        <option value="Tourist Destination">Tourist Destination</option>
+        <option value="Other">Other</option>
+    </select>
+    <br><br>
+
+    Description:
+    <br>
+    <textarea name="description" rows="5" cols="40"></textarea>
+    <br><br>
+
+    Photo:
+    <input type="file" name="photo" required>
+    <br><br>
+
+    <input type="submit" value="Share Place">
 
 </form>
 
