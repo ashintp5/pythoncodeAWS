@@ -1,55 +1,242 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Hidden Places Explorer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #0f766e);
+            color: white;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 17px;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .intro {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Hidden Places Explorer</h1>
+<header>
+    <h1>🌍 Hidden Places Explorer</h1>
+    <p>Discover and share lesser-known places worth exploring</p>
+</header>
 
-<p>Share a lesser-known place with other explorers.</p>
+<div class="container">
 
-<form action="/register"
-      method="POST"
-      enctype="multipart/form-data">
+    <div class="card">
 
-    Name:
-    <input type="text" name="name" required>
-    <br><br>
+        <h2>Share a Hidden Place</h2>
 
-    Email:
-    <input type="email" name="email" required>
-    <br><br>
+        <p class="intro">
+            Help other explorers discover beautiful and interesting places
+            by submitting a location below.
+        </p>
 
-    Place Name:
-    <input type="text" name="place_name" required>
-    <br><br>
+        <form action="/register" method="POST" enctype="multipart/form-data">
 
-    Location:
-    <input type="text" name="location" required>
-    <br><br>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required>
+            </div>
 
-    Category:
-    <select name="category">
-        <option value="Historical Site">Historical Site</option>
-        <option value="Natural Attraction">Natural Attraction</option>
-        <option value="Tourist Destination">Tourist Destination</option>
-        <option value="Other">Other</option>
-    </select>
-    <br><br>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+            </div>
 
-    Description:
-    <br>
-    <textarea name="description" rows="5" cols="40"></textarea>
-    <br><br>
+            <div class="form-group">
+                <label for="place_name">Place Name</label>
+                <input
+                    type="text"
+                    id="place_name"
+                    name="place_name"
+                    placeholder="Example: Athirappilly Waterfalls"
+                    required>
+            </div>
 
-    Photo:
-    <input type="file" name="photo" required>
-    <br><br>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="City, District, State"
+                    required>
+            </div>
 
-    <input type="submit" value="Share Place">
+            <div class="form-group">
+                <label for="category">Category</label>
 
-</form>
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="Natural Attraction">Natural Attraction</option>
+                    <option value="Historical Site">Historical Site</option>
+                    <option value="Tourist Destination">Tourist Destination</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Waterfall">Waterfall</option>
+                    <option value="Mountain">Mountain</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Tell us what makes this place special..."
+                    required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Photo</label>
+
+                <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                    required>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Hidden Place
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<footer>
+    Hidden Places Explorer · AWS Cloud Deployment Project
+</footer>
 
 </body>
 </html>
