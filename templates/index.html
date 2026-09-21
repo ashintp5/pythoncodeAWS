@@ -109,6 +109,24 @@
             background: #1d4ed8;
         }
 
+        .view-places-btn {
+            display: block;
+            width: 100%;
+            margin-top: 12px;
+            padding: 14px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            background: #0f766e;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .view-places-btn:hover {
+            background: #0d5f59;
+        }
+
         footer {
             text-align: center;
             padding: 25px;
@@ -150,6 +168,7 @@
 
             <div class="form-group">
                 <label for="name">Your Name</label>
+
                 <input
                     type="text"
                     id="name"
@@ -160,6 +179,7 @@
 
             <div class="form-group">
                 <label for="email">Email</label>
+
                 <input
                     type="email"
                     id="email"
@@ -170,6 +190,7 @@
 
             <div class="form-group">
                 <label for="place_name">Place Name</label>
+
                 <input
                     type="text"
                     id="place_name"
@@ -180,6 +201,7 @@
 
             <div class="form-group">
                 <label for="location">Location</label>
+
                 <input
                     type="text"
                     id="location"
@@ -227,6 +249,10 @@
             <button type="submit" class="submit-btn">
                 Submit Hidden Place
             </button>
+
+            <a href="/places" class="view-places-btn">
+                🗺️ View Hidden Places
+            </a>
 
         </form>
 
